@@ -1,0 +1,21 @@
+{
+    "name": "agilesdesign/pseudo",
+    "description": "Guest user library for Laravel",
+    "type": "library",
+    "require": {
+        "php": "7.*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pseudo\\": "src/Pseudo"
+        }
+    },
+    "authors": [
+        {
+            "name": "Justin Seliga",
+            "email": "jseliga@agilesdesign.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
