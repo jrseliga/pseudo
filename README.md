@@ -14,7 +14,7 @@ pseudo adds the ability for guests permissions within Laravel's authentication f
 
 ```php
 'providers' => [
-    agilesdesign\Laravel\Pseudo\Providers\PseudoServiceProvider::class,
+    Pseudo\Providers\PseudoServiceProvider::class,
 ];
 ```
 
