@@ -21,11 +21,11 @@ pseudo adds the ability for guests permissions within Laravel's authentication f
 ## Overview
 Comparison to default Laravel behavior
 ```php
-Auth::check() // true if User false if agilesDesign/Laravel/Pseudo/Contracts/GuestContract 
+Auth::check() // true if User false if Pseudo/Contracts/GuestContract 
 ```
 
 ```php
-Auth::user() // returns instance of agilesDesign/Laravel/Pseudo/Contracts/GuestContract instead of null if no user found
+Auth::user() // returns instance of Pseudo/Contracts/GuestContract instead of null if no user found
 ```
 
 ```php
@@ -35,7 +35,7 @@ Auth::user() // returns instance of agilesDesign/Laravel/Pseudo/Contracts/GuestC
 ## Usage
 Out of the box this library does not require any additional configuration.
 
-An instance of `agilesdesign\Laravel\Pseudo\Auth\Guest` is resolved from Laravel's Service Container when `agilesDesign/Laravel/Pseudo/Contracts/GuestContract` is requested.
+An instance of `Pseudo\Auth\Guest` is resolved from Laravel's Service Container when `Pseudo/Contracts/GuestContract` is requested.
 
 This binding is registered in the supplied ServiceProvider:
 
@@ -46,12 +46,12 @@ public function register()
 }
 ```
 
-Policy checks can still be type-hinted for Laravel's `App\User` since `agilesdesign\Laravel\Pseudo\Auth\Guest` extends it.
+Policy checks can still be type-hinted for Laravel's `App\User` since `Pseudo\Auth\Guest` extends it.
 
 ##### Example
 ```php
 Gate::define('create-article', function ($user, $article) {
-    if($user instanceof agilesdesign\Laravel\Pseudo\Auth\Guest)
+    if($user instanceof Pseudo\Auth\Guest)
     {
       // logic for guest
     }
@@ -61,8 +61,3 @@ Gate::define('create-article', function ($user, $article) {
     }
 });
 ```
-
-
-
-
-
