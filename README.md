@@ -33,7 +33,7 @@ Auth::user() // returns instance of Pseudo/Contracts/GuestContract instead of nu
 ```
 
 ## Usage
-Out of the box this library does not require any additional configuration.
+The only configuration this library requires out of the box is updating the `driver` in your auth guard (config/auth.php) to `pseudo`.
 
 An instance of `Pseudo\Auth\Guest` is resolved from Laravel's Service Container when `Pseudo/Contracts/GuestContract` is requested.
 
@@ -44,6 +44,23 @@ public function register()
 {
     $this->app->bind(GuestContract::class, Guest::class);
 }
+```
+
+You may override this by providing your own `GuestUser` class that implements `Pseudo/Contracts/GuestContract` and rebinding the interface:
+
+```php
+class GuestUser extends User implements GuestContract
+{
+
+    //Here you amy overload anything to be specific to your guest user
+    public function getNameAttribute(){
+        return 'Guest User';
+    }
+}
+```
+
+```php
+this->app->bind(\Pseudo\Contracts\GuestContract::class, \App\GuestUser::class);
 ```
 
 Policy checks can still be type-hinted for Laravel's `App\User` since `Pseudo\Auth\Guest` extends it.
