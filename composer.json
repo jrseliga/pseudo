@@ -17,5 +17,10 @@
             "email": "jseliga@agilesdesign.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "orchestra/testbench": "~3.0",
+        "phpunit/phpunit": "^6.2",
+        "laravel/laravel": "^5.4"
+    }
 }
