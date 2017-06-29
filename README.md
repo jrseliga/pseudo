@@ -33,17 +33,22 @@ Auth::user() // returns instance of Pseudo/Contracts/GuestContract instead of nu
 ```
 
 ## Configuration
-#### Update Guard Driver
+#### Update Guard Driver(s)
 `config/auth.php`
 
 ```php
 'guards' => [
+    // To use with web guard
     'web' => [
         'driver' => 'pseudo',
         'provider' => 'users',
     ],
     
-    // additional guards
+    // To use with api guard
+    'api' => [
+        'driver' => 'pseudo-token',
+        'provider' => 'users',
+    ],
 ],
 ```
 
