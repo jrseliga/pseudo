@@ -22,5 +22,12 @@
         "orchestra/testbench": "~3.0",
         "phpunit/phpunit": "^6.2",
         "laravel/laravel": "^5.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pseudo\\Providers\\PseudoServiceProvider"
+            ]
+        }
     }
 }
