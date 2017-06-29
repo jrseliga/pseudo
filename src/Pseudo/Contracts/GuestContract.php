@@ -2,7 +2,4 @@
 
 namespace Pseudo\Contracts;
 
-interface GuestContract
-{
-
-}
+interface GuestContract {}

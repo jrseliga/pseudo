@@ -25,7 +25,7 @@ class PseudoServiceProvider extends ServiceProvider
     }
 
     /**
-     * Boot Route Middleware
+     * Boot Route Middleware.
      *
      * @return void
      */
