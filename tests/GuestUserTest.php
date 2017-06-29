@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Pseudo\Contracts\GuestContract;
 use Orchestra\Testbench\TestCase;
+use Pseudo\Contracts\GuestContract;
+use Illuminate\Support\Facades\Auth;
 
 class GuestUserTest extends TestCase
 {
@@ -30,7 +30,7 @@ class GuestUserTest extends TestCase
     }
 
     /**
-     * Test that Laravel Auth returns instance of GuestContract
+     * Test that Laravel Auth returns instance of GuestContract.
      */
     public function test_auth_returns_guest()
     {

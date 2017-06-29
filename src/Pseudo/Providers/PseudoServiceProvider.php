@@ -4,8 +4,8 @@ namespace Pseudo\Providers;
 
 use Pseudo\Auth\Guest;
 use Pseudo\Auth\SessionGuard;
-use Pseudo\Contracts\GuestContract;
 use Pseudo\Middleware\Authorize;
+use Pseudo\Contracts\GuestContract;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
