@@ -32,9 +32,35 @@ Auth::user() // returns instance of Pseudo/Contracts/GuestContract instead of nu
 @can() // no longer automatically fails if not authenticated, allows Gate to be checked
 ```
 
-## Usage
-The only configuration this library requires out of the box is updating the `driver` in your auth guard (config/auth.php) to `pseudo`.
+## Configuration
+#### Update Guard Driver
+`config/auth.php`
 
+```php
+'guards' => [
+    'web' => [
+        'driver' => 'pseudo',
+        'provider' => 'users',
+    ],
+    
+    // additional guards
+],
+```
+
+#### Register Service Provider
+> Manually registering the ServiceProvider is only necessary if your Laravel application is version 5.4.* or before.
+`config/app.php`
+
+```php
+'providers' => [
+    /*
+     * Package Service Providers...
+     */
+    \Pseudo\Providers\PseudoServiceProvider::class,
+],
+```
+
+## Usage
 An instance of `Pseudo\Auth\Guest` is resolved from Laravel's Service Container when `Pseudo/Contracts/GuestContract` is requested.
 
 This binding is registered in the supplied ServiceProvider:
@@ -51,8 +77,7 @@ You may override this by providing your own `GuestUser` class that implements `P
 ```php
 class GuestUser extends User implements GuestContract
 {
-
-    //Here you amy overload anything to be specific to your guest user
+    //You can override any attribute by using Eloquent Accessors
     public function getNameAttribute(){
         return 'Guest User';
     }
