@@ -24,6 +24,16 @@ class PseudoServiceProvider extends ServiceProvider
         $this->bootAuthOverrides();
     }
 
+    /**
+     * Boot Route Middleware
+     *
+     * @return void
+     */
+    protected function bootRouteMiddleware()
+    {
+        Route::middleware('can', Authorize::class);
+    }
+
     protected function bootAuthOverrides()
     {
         Auth::extend('pseudo', function ($app, $name, array $config) {
@@ -43,11 +53,6 @@ class PseudoServiceProvider extends ServiceProvider
 
             return $guard;
         });
-    }
-
-    protected function bootRouteMiddleware()
-    {
-        Route::middleware('can', Authorize::class);
     }
 
     /**

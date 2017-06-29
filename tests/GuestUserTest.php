@@ -7,9 +7,17 @@ use Illuminate\Support\Facades\Auth;
 class GuestUserTest extends TestCase
 {
     /**
+     * Test that Laravel Auth returns instance of GuestContract.
+     */
+    public function test_auth_returns_guest()
+    {
+        $this->assertInstanceOf(GuestContract::class, Auth::user());
+    }
+
+    /**
      * Define environment setup.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  \Illuminate\Foundation\Application $app
      * @return void
      */
     protected function getEnvironmentSetUp($app)
@@ -20,20 +28,12 @@ class GuestUserTest extends TestCase
     /**
      * Get package providers.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  \Illuminate\Foundation\Application $app
      *
      * @return array
      */
     protected function getPackageProviders($app)
     {
         return [\Pseudo\Providers\PseudoServiceProvider::class];
-    }
-
-    /**
-     * Test that Laravel Auth returns instance of GuestContract.
-     */
-    public function test_auth_returns_guest()
-    {
-        $this->assertInstanceOf(GuestContract::class, Auth::user());
     }
 }

@@ -7,4 +7,5 @@ use Pseudo\Contracts\GuestContract;
 
 class Guest extends User implements GuestContract
 {
+
 }

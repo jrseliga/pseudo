@@ -15,7 +15,7 @@ class SessionGuard extends LaravelSessionGuard
      */
     public function check()
     {
-        return ! $this->user() instanceof GuestContract;
+        return !$this->user() instanceof GuestContract;
     }
 
     /**
@@ -45,10 +45,10 @@ class SessionGuard extends LaravelSessionGuard
     {
         $user = $this->user();
 
-        if (! $user instanceof GuestContract) {
+        if (!$user instanceof GuestContract) {
             return $user;
         }
 
-        throw new AuthenticationException();
+        throw new AuthenticationException;
     }
 }
