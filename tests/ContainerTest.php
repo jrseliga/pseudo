@@ -8,7 +8,7 @@ use Pseudo\Providers\PseudoServiceProvider;
 class ContainerTest extends TestCase
 {
     /**
-     * Test that Laravel has an implementation of GuestContract registered
+     * Test that Laravel has an implementation of GuestContract registered.
      */
     public function test_implementation_of_contract_registered_to_container()
     {
