@@ -1,50 +1,41 @@
 <?php
 
-use Orchestra\Testbench\TestCase;
-use Pseudo\Contracts\GuestContract;
-use Illuminate\Support\Facades\Auth;
-use Pseudo\Providers\PseudoServiceProvider;
+use App\User;
 
-class SessionGuardTest extends TestCase
+class SessionGuardTest extends GuardBaseTest
 {
+    protected $guard = 'web';
+
+    protected $driver = 'pseudo';
+
     /**
-     * Test that Laravel Auth returns instance of GuestContract.
+     * Test that Laravel Auth knows the authenticated User.
      */
-    public function test_guard_returns_guest()
+    public function test_user_is_authenticated()
     {
-        $this->assertInstanceOf(GuestContract::class, Auth::guard('web')->user());
+        $this->loadFactories();
+        $this->prepareDatabase();
+
+        $user = factory(User::class)->create();
+
+        $this->auth->login($user);
+
+        $this->assertTrue($this->auth->check());
+        $this->assertInstanceOf(User::class, $this->auth->authenticate());
     }
 
     /**
-     * Test that Laravel Auth returns can check for guest.
+     * Test that Laravel Auth knows if user is not an implementation of GuestContract.
      */
-    public function test_guard_determines_if_guest()
+    public function test_can_know_if_user_is_not_guest()
     {
-        $this->assertTrue(Auth::guard('web')->guest());
-    }
+        $this->loadFactories();
+        $this->prepareDatabase();
 
-    /**
-     * Define environment setup.
-     *
-     * @param  \Illuminate\Foundation\Application $app
-     * @return void
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('auth.guards.web.driver', 'pseudo');
-    }
+        $user = factory(User::class)->create();
 
-    /**
-     * Get package providers.
-     *
-     * @param  \Illuminate\Foundation\Application $app
-     *
-     * @return array
-     */
-    protected function getPackageProviders($app)
-    {
-        return [
-            PseudoServiceProvider::class,
-        ];
+        $this->auth->login($user);
+
+        $this->assertFalse($this->auth->guest());
     }
 }
