@@ -21,7 +21,7 @@ class MiddlewareTest extends BaseTest
         $this->expectException(AuthorizationException::class);
 
         $this->middleware->handle($this->request, function () {
-            return;
+            return true;
         }, 'not-allowed');
     }
 
