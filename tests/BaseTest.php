@@ -76,6 +76,6 @@ abstract class BaseTest extends TestCase
      */
     protected function loadLaravelFactories()
     {
-        $this->withFactories(__DIR__ . '/../vendor/laravel/laravel/database/factories');
+        $this->withFactories(__DIR__.'/../vendor/laravel/laravel/database/factories');
     }
 }

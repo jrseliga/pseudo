@@ -59,7 +59,7 @@ abstract class GuardBaseTest extends BaseTest
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('auth.guards.' . $this->guard . '.driver', $this->driver);
+        $app['config']->set('auth.guards.'.$this->guard.'.driver', $this->driver);
 
         parent::getEnvironmentSetUp($app);
     }
