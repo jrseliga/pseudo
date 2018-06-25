@@ -1,13 +1,7 @@
 # pseudo
-Guest user library for Laravel
+#### Guest user library for Laravel
 
-Branch         |         |         |
-------- | ------- | ------- |
-master  | [![build status](https://gitlab.com/agilesdesign/pseudo/badges/master/build.svg)](https://gitlab.com/agilesdesign/pseudo/commits/master)   | [![coverage report](https://gitlab.com/agilesdesign/pseudo/badges/master/coverage.svg)](https://gitlab.com/agilesdesign/pseudo/commits/master)
-dev     | [![build status](https://gitlab.com/agilesdesign/pseudo/badges/dev/build.svg)](https://gitlab.com/agilesdesign/pseudo/commits/dev)         | [![coverage report](https://gitlab.com/agilesdesign/pseudo/badges/dev/coverage.svg)](https://gitlab.com/agilesdesign/pseudo/commits/dev)
-
-## Description
-pseudo adds the ability for guests permissions within Laravel's authentication functionality.
+Provides the ability for guests permissions within Laravel's authentication functionality.
 
 ## Installation
 
